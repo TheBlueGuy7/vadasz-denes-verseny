@@ -39,7 +39,7 @@ public class PathFinder {
                     int nextX = current.x + dx;
                     int nextY = current.y + dy;
 
-                    // Térkép széle és akadály ellenőrzés
+                    // terkep szele vagy akadaly ellenorzes
                     if (isValid(nextX, nextY) && !closedSet[nextX][nextY] && map[nextX][nextY] != CellType.OBSTACLE) {
                         double moveCost = (dx == 0 || dy == 0) ? 1.0 : 1.414; // atlosan hosszabb a tavolsag
                         double newGCost = current.gCost + moveCost;
