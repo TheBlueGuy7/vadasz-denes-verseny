@@ -33,10 +33,13 @@ public class Rover {
 
     public double getBattery() { return battery; }
     public void setBattery(int battery) { this.battery = battery; }
+
     public int getX() { return x; }
     public void setX(int x) { this.x = x; }
+
     public int getY() { return y; }
     public void setY(int y) { this.y = y; }
+
     public int getCollectedMinerals() { return collectedMinerals; }
     public void setCollectedMinerals(int collectedMinerals) { this.collectedMinerals = collectedMinerals; }
 }
