@@ -1,7 +1,5 @@
 package hu.theblueguy7.model;
 
-import javafx.util.Pair;
-
 public class Rover {
     private int x, y;
     private double battery = 100.0;

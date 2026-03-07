@@ -8,6 +8,9 @@ public enum CellType {
     GREEN('G'),
     START('S');
 
+    private final char symbol;
+
     CellType(char symbol) {
+        this.symbol = symbol;
     }
 }
