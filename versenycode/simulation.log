@@ -1,0 +1,96 @@
+[0000 min] POS: ( 3, 0) | BATT:  92.0% | DIST:    3 | MIN:  0 | ACT: MOVING (FAST)
+[0030 min] POS: ( 6, 2) | BATT:  84.0% | DIST:    6 | MIN:  0 | ACT: MOVING (FAST)
+[0060 min] POS: ( 9, 2) | BATT:  76.0% | DIST:    9 | MIN:  0 | ACT: MOVING (FAST)
+[0090 min] POS: (11, 1) | BATT:  78.0% | DIST:   11 | MIN:  0 | ACT: MOVING (NORMAL)
+[0120 min] POS: (11, 1) | BATT:  86.0% | DIST:   11 | MIN:  1 | ACT: MINING Y
+[0150 min] POS: (11, 2) | BATT:  94.0% | DIST:   12 | MIN:  1 | ACT: MOVING (SLOW)
+[0180 min] POS: (11, 2) | BATT: 100.0% | DIST:   12 | MIN:  2 | ACT: MINING Y
+[0210 min] POS: (12, 1) | BATT: 100.0% | DIST:   13 | MIN:  2 | ACT: MOVING (SLOW)
+[0240 min] POS: (12, 1) | BATT: 100.0% | DIST:   13 | MIN:  3 | ACT: MINING Y
+[0270 min] POS: (12, 2) | BATT: 100.0% | DIST:   14 | MIN:  3 | ACT: MOVING (SLOW)
+[0300 min] POS: (12, 2) | BATT: 100.0% | DIST:   14 | MIN:  4 | ACT: MINING Y
+[0330 min] POS: (13, 1) | BATT: 100.0% | DIST:   15 | MIN:  4 | ACT: MOVING (SLOW)
+[0360 min] POS: (13, 1) | BATT: 100.0% | DIST:   15 | MIN:  5 | ACT: MINING Y
+[0390 min] POS: (13, 2) | BATT: 100.0% | DIST:   16 | MIN:  5 | ACT: MOVING (SLOW)
+[0420 min] POS: (13, 2) | BATT: 100.0% | DIST:   16 | MIN:  6 | ACT: MINING Y
+[0450 min] POS: (13, 5) | BATT:  92.0% | DIST:   19 | MIN:  6 | ACT: MOVING (FAST)
+[0480 min] POS: (13, 7) | BATT:  94.0% | DIST:   21 | MIN:  6 | ACT: MOVING (NORMAL)
+[0510 min] POS: (13, 7) | BATT: 100.0% | DIST:   21 | MIN:  7 | ACT: MINING B
+[0540 min] POS: (13, 8) | BATT: 100.0% | DIST:   22 | MIN:  7 | ACT: MOVING (SLOW)
+[0570 min] POS: (13, 8) | BATT: 100.0% | DIST:   22 | MIN:  8 | ACT: MINING B
+[0600 min] POS: (14, 7) | BATT: 100.0% | DIST:   23 | MIN:  8 | ACT: MOVING (SLOW)
+[0630 min] POS: (14, 7) | BATT: 100.0% | DIST:   23 | MIN:  9 | ACT: MINING B
+[0660 min] POS: (14, 8) | BATT: 100.0% | DIST:   24 | MIN:  9 | ACT: MOVING (SLOW)
+[0690 min] POS: (14, 8) | BATT: 100.0% | DIST:   24 | MIN: 10 | ACT: MINING B
+[0720 min] POS: (15, 7) | BATT: 100.0% | DIST:   25 | MIN: 10 | ACT: MOVING (SLOW)
+[0750 min] POS: (15, 7) | BATT: 100.0% | DIST:   25 | MIN: 11 | ACT: MINING B
+[0780 min] POS: (15, 8) | BATT: 100.0% | DIST:   26 | MIN: 11 | ACT: MOVING (SLOW)
+[0810 min] POS: (15, 8) | BATT: 100.0% | DIST:   26 | MIN: 12 | ACT: MINING B
+[0840 min] POS: (16, 7) | BATT: 100.0% | DIST:   27 | MIN: 12 | ACT: MOVING (SLOW)
+[0870 min] POS: (16, 7) | BATT: 100.0% | DIST:   27 | MIN: 13 | ACT: MINING B
+[0900 min] POS: (16, 8) | BATT: 100.0% | DIST:   28 | MIN: 13 | ACT: MOVING (SLOW)
+[0930 min] POS: (16, 8) | BATT: 100.0% | DIST:   28 | MIN: 14 | ACT: MINING B
+[0960 min] POS: (14,10) | BATT:  92.0% | DIST:   30 | MIN: 14 | ACT: MOVING (NORMAL)
+[0990 min] POS: (15,11) | BATT:  90.0% | DIST:   31 | MIN: 14 | ACT: MOVING (SLOW)
+[1020 min] POS: (15,11) | BATT:  88.0% | DIST:   31 | MIN: 15 | ACT: MINING G
+[1050 min] POS: (14,12) | BATT:  86.0% | DIST:   32 | MIN: 15 | ACT: MOVING (SLOW)
+[1080 min] POS: (14,12) | BATT:  84.0% | DIST:   32 | MIN: 16 | ACT: MINING Y
+[1110 min] POS: (14,13) | BATT:  82.0% | DIST:   33 | MIN: 16 | ACT: MOVING (SLOW)
+[1140 min] POS: (14,13) | BATT:  80.0% | DIST:   33 | MIN: 17 | ACT: MINING Y
+[1170 min] POS: (14,14) | BATT:  78.0% | DIST:   34 | MIN: 17 | ACT: MOVING (SLOW)
+[1200 min] POS: (14,14) | BATT:  76.0% | DIST:   34 | MIN: 18 | ACT: MINING Y
+[1230 min] POS: (15,13) | BATT:  74.0% | DIST:   35 | MIN: 18 | ACT: MOVING (SLOW)
+[1260 min] POS: (15,13) | BATT:  72.0% | DIST:   35 | MIN: 19 | ACT: MINING Y
+[1290 min] POS: (15,12) | BATT:  70.0% | DIST:   36 | MIN: 19 | ACT: MOVING (SLOW)
+[1320 min] POS: (15,12) | BATT:  68.0% | DIST:   36 | MIN: 20 | ACT: MINING Y
+[1350 min] POS: (16,11) | BATT:  66.0% | DIST:   37 | MIN: 20 | ACT: MOVING (SLOW)
+[1380 min] POS: (16,11) | BATT:  64.0% | DIST:   37 | MIN: 21 | ACT: MINING G
+[1410 min] POS: (16,12) | BATT:  62.0% | DIST:   38 | MIN: 21 | ACT: MOVING (SLOW)
+[1440 min] POS: (16,12) | BATT:  70.0% | DIST:   38 | MIN: 22 | ACT: MINING G
+[1470 min] POS: (16,13) | BATT:  78.0% | DIST:   39 | MIN: 22 | ACT: MOVING (SLOW)
+[1500 min] POS: (16,13) | BATT:  86.0% | DIST:   39 | MIN: 23 | ACT: MINING G
+[1530 min] POS: (15,14) | BATT:  94.0% | DIST:   40 | MIN: 23 | ACT: MOVING (SLOW)
+[1560 min] POS: (15,14) | BATT: 100.0% | DIST:   40 | MIN: 24 | ACT: MINING Y
+[1590 min] POS: (16,14) | BATT: 100.0% | DIST:   41 | MIN: 24 | ACT: MOVING (SLOW)
+[1620 min] POS: (16,14) | BATT: 100.0% | DIST:   41 | MIN: 25 | ACT: MINING B
+[1650 min] POS: (17,13) | BATT: 100.0% | DIST:   42 | MIN: 25 | ACT: MOVING (SLOW)
+[1680 min] POS: (17,13) | BATT: 100.0% | DIST:   42 | MIN: 26 | ACT: MINING B
+[1710 min] POS: (17,12) | BATT: 100.0% | DIST:   43 | MIN: 26 | ACT: MOVING (SLOW)
+[1740 min] POS: (17,12) | BATT: 100.0% | DIST:   43 | MIN: 27 | ACT: MINING B
+[1770 min] POS: (17,11) | BATT: 100.0% | DIST:   44 | MIN: 27 | ACT: MOVING (SLOW)
+[1800 min] POS: (17,11) | BATT: 100.0% | DIST:   44 | MIN: 28 | ACT: MINING B
+[1830 min] POS: (18,11) | BATT: 100.0% | DIST:   45 | MIN: 28 | ACT: MOVING (SLOW)
+[1860 min] POS: (18,11) | BATT: 100.0% | DIST:   45 | MIN: 29 | ACT: MINING B
+[1890 min] POS: (18,12) | BATT: 100.0% | DIST:   46 | MIN: 29 | ACT: MOVING (SLOW)
+[1920 min] POS: (18,12) | BATT: 100.0% | DIST:   46 | MIN: 30 | ACT: MINING B
+[1950 min] POS: (18,13) | BATT: 100.0% | DIST:   47 | MIN: 30 | ACT: MOVING (SLOW)
+[1980 min] POS: (18,13) | BATT: 100.0% | DIST:   47 | MIN: 31 | ACT: MINING B
+[2010 min] POS: (17,14) | BATT: 100.0% | DIST:   48 | MIN: 31 | ACT: MOVING (SLOW)
+[2040 min] POS: (17,14) | BATT: 100.0% | DIST:   48 | MIN: 32 | ACT: MINING B
+[2070 min] POS: (18,14) | BATT: 100.0% | DIST:   49 | MIN: 32 | ACT: MOVING (SLOW)
+[2100 min] POS: (18,14) | BATT: 100.0% | DIST:   49 | MIN: 33 | ACT: MINING B
+[2130 min] POS: (19,13) | BATT: 100.0% | DIST:   50 | MIN: 33 | ACT: MOVING (SLOW)
+[2160 min] POS: (19,13) | BATT: 100.0% | DIST:   50 | MIN: 34 | ACT: MINING B
+[2190 min] POS: (19,12) | BATT: 100.0% | DIST:   51 | MIN: 34 | ACT: MOVING (SLOW)
+[2220 min] POS: (19,12) | BATT: 100.0% | DIST:   51 | MIN: 35 | ACT: MINING B
+[2250 min] POS: (19,11) | BATT: 100.0% | DIST:   52 | MIN: 35 | ACT: MOVING (SLOW)
+[2280 min] POS: (19,11) | BATT: 100.0% | DIST:   52 | MIN: 36 | ACT: MINING B
+[2310 min] POS: (19,14) | BATT:  92.0% | DIST:   55 | MIN: 36 | ACT: MOVING (FAST)
+[2340 min] POS: (19,14) | BATT: 100.0% | DIST:   55 | MIN: 37 | ACT: MINING B
+[2370 min] POS: (22,12) | BATT:  92.0% | DIST:   58 | MIN: 37 | ACT: MOVING (FAST)
+[2400 min] POS: (24,11) | BATT:  84.0% | DIST:   60 | MIN: 37 | ACT: MOVING (NORMAL)
+[2430 min] POS: (26,11) | BATT:  76.0% | DIST:   62 | MIN: 37 | ACT: MOVING (NORMAL)
+[2460 min] POS: (24, 9) | BATT:  68.0% | DIST:   64 | MIN: 37 | ACT: MOVING (NORMAL)
+[2490 min] POS: (22, 7) | BATT:  60.0% | DIST:   66 | MIN: 37 | ACT: MOVING (NORMAL)
+[2520 min] POS: (20, 6) | BATT:  52.0% | DIST:   68 | MIN: 37 | ACT: MOVING (NORMAL)
+[2550 min] POS: (18, 5) | BATT:  44.0% | DIST:   70 | MIN: 37 | ACT: MOVING (NORMAL)
+[2580 min] POS: (16, 5) | BATT:  36.0% | DIST:   72 | MIN: 37 | ACT: MOVING (NORMAL)
+[2610 min] POS: (14, 5) | BATT:  28.0% | DIST:   74 | MIN: 37 | ACT: MOVING (NORMAL)
+[2640 min] POS: (13, 4) | BATT:  26.0% | DIST:   75 | MIN: 37 | ACT: MOVING (SLOW)
+[2670 min] POS: (12, 4) | BATT:  24.0% | DIST:   76 | MIN: 37 | ACT: MOVING (SLOW)
+[2700 min] POS: (11, 4) | BATT:  22.0% | DIST:   77 | MIN: 37 | ACT: MOVING (SLOW)
+[2730 min] POS: (10, 3) | BATT:  20.0% | DIST:   78 | MIN: 37 | ACT: MOVING (SLOW)
+[2760 min] POS: ( 9, 4) | BATT:  18.0% | DIST:   79 | MIN: 37 | ACT: MOVING (SLOW)
+[2790 min] POS: ( 8, 3) | BATT:  16.0% | DIST:   80 | MIN: 37 | ACT: MOVING (SLOW)
+[2820 min] POS: ( 7, 2) | BATT:  14.0% | DIST:   81 | MIN: 37 | ACT: MOVING (SLOW)
+[2850 min] POS: ( 6, 1) | BATT:  12.0% | DIST:   82 | MIN: 37 | ACT: MOVING (SLOW)

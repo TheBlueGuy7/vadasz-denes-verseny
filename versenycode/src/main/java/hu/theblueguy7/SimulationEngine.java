@@ -2,10 +2,7 @@ package hu.theblueguy7;
 
 
 
-import hu.theblueguy7.model.CellType;
-import hu.theblueguy7.model.Node;
-import hu.theblueguy7.model.Rover;
-import hu.theblueguy7.model.Speed;
+import hu.theblueguy7.model.*;
 
 import java.util.*;
 
@@ -17,6 +14,7 @@ public class SimulationEngine {
     private List<Node> currentPath = new ArrayList<>();
     private final int startX, startY;
     private boolean isHeadingHome = false;
+
 
     public SimulationEngine(CellType[][] map, int startX, int startY) {
         this.map = map;
@@ -126,8 +124,53 @@ public class SimulationEngine {
     }
 
     private List<Node> findBestMineral(int currentStep) {
-        // vegigmegy a terkepen, megkeresi a legkozelebbi asvanyt amihez meg van eleg energia
-        // StrategyManager.estimateRoute
-        return null; // WORK IN PROGRESS...
+        List<Node> minerals = new ArrayList<>();
+
+        for (int i = 0; i < 50; i++) {
+            for (int j = 0; j < 50; j++) {
+                if (map[i][j].isMineral()) {
+                    minerals.add(new Node(i, j));
+                }
+            }
+        }
+
+        minerals.sort((a, b) -> {
+            int distA = Math.max(Math.abs(a.x - rover.getX()), Math.abs(a.y - rover.getY()));
+            int distB = Math.max(Math.abs(b.x - rover.getX()), Math.abs(b.y - rover.getY()));
+            return Integer.compare(distA, distB);
+        });
+
+        for (Node target : minerals) {
+            List<Node> pathToMineral = pathFinder.findPath(rover.getX(), rover.getY(), target.x, target.y);
+
+            if (pathToMineral != null) {
+                if (isSafe(pathToMineral, currentStep)) {
+                    return pathToMineral;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private boolean isSafe(List<Node> pathToMineral, int currentStep) {
+        Speed estSpeed = Speed.NORMAL;
+
+        StrategyManager.RouteEstimate toGoal = strategy.estimateRoute(pathToMineral.size(), estSpeed, currentStep);
+
+        int stepAfterMining = currentStep + toGoal.timeSteps + 1;
+        boolean isDayMining = (stepAfterMining % 48) < 32;
+        double miningCost = 2.0 - (isDayMining ? 10.0 : 0.0);
+
+        Node mineralPos = pathToMineral.getLast();
+        List<Node> backHomePath = pathFinder.findPath(mineralPos.x, mineralPos.y, startX, startY);
+
+        if (backHomePath == null) return false;
+
+        StrategyManager.RouteEstimate backHome = strategy.estimateRoute(backHomePath.size(), estSpeed, stepAfterMining);
+
+        double totalEnergyNeeded = toGoal.energyNeeded + miningCost + backHome.energyNeeded;
+
+        return rover.getBattery() > (totalEnergyNeeded + 5.0);
     }
 }
