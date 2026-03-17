@@ -1,0 +1,4 @@
+name: test
+version: '1.0-SNAPSHOT'
+main: hu.theblueguy7.test.Test
+api-version: '1.21'
