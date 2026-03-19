@@ -10,7 +10,7 @@ public class SimulationEngine {
     private final CellType[][] map;
     private final Rover rover;
     private final PathFinder pathFinder;
-    private StrategyManager strategy;
+    private final StrategyManager strategy;
     private List<Node> currentPath = new ArrayList<>();
     private final int startX, startY;
     private boolean isHeadingHome = false;
@@ -36,6 +36,7 @@ public class SimulationEngine {
             double consumption = 1.0; // standby fogyasztas
             Speed currentSpeed = Speed.SLOW;
 
+            if (rover.getBattery() >= 2.0) {
             // 1. idokorlat miatti hazateres ellenorzese
             if (!isHeadingHome) {
                 List<Node> pathToHome = pathFinder.findPath(rover.getX(), rover.getY(), startX, startY);
@@ -88,6 +89,9 @@ public class SimulationEngine {
                     }
                 }
             }
+            } else {
+                action = "WAITING FOR CHARGE";
+            }
 
             // 5. energia frissitese
             double charge = isDay ? 10.0 : 0.0; // [cite: 40]
@@ -99,29 +103,30 @@ public class SimulationEngine {
             FileManager.log(logLine);
 
             // ha lemerult
-            if (rover.getBattery() <= 0) {
-                FileManager.log("CRITICAL FAILURE: BATTERY DEAD");
-                break;
-            }
-
-            // ha hazaert
-            if (isHeadingHome && rover.getX() == startX && rover.getY() == startY) {
-                FileManager.log("MISSION ACCOMPLISHED: ROVER RETURNED TO BASE");
-            }
         }
     }
 
-    // sebesseg eldontese az uthossz fuggvenyeben !NEM VEGLEGES!
-    private Speed determineOptimalSpeed(boolean isDay, double battery, int distanceLeft) {
-        // ha mar csak 1 lepes van hatra akkor nem kell gyorsan menni
-        if (distanceLeft == 1) return Speed.SLOW;
+        private Speed determineOptimalSpeed(boolean isDay, double battery, int distanceLeft) {
+            if (distanceLeft <= 1) return Speed.SLOW;
+            if (distanceLeft == 2) return Speed.NORMAL;
+            // nappal
+            if (isDay) {
+                if (battery < 25.0) return Speed.SLOW;
 
-        if (isDay) {
-            return (battery > 50 && distanceLeft >= 3) ? Speed.FAST : Speed.NORMAL;
-        } else {
-            return (battery < 30) ? Speed.SLOW : Speed.NORMAL;
+                if (battery > 85.0) return Speed.FAST;
+
+                return Speed.NORMAL;
+            }
+            // este
+            else {
+                if (this.isHeadingHome && battery > 40.0) {
+                    return Speed.NORMAL;
+                }
+
+                if (battery > 90.0) return Speed.NORMAL;
+                return Speed.SLOW;
+            }
         }
-    }
 
     private List<Node> findBestMineral(int currentStep) {
         List<Node> minerals = new ArrayList<>();
@@ -162,7 +167,7 @@ public class SimulationEngine {
         boolean isDayMining = (stepAfterMining % 48) < 32;
         double miningCost = 2.0 - (isDayMining ? 10.0 : 0.0);
 
-        Node mineralPos = pathToMineral.getLast();
+        Node mineralPos = pathToMineral. getLast();
         List<Node> backHomePath = pathFinder.findPath(mineralPos.x, mineralPos.y, startX, startY);
 
         if (backHomePath == null) return false;
