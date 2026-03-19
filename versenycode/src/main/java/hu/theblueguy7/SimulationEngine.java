@@ -98,8 +98,8 @@ public class SimulationEngine {
             rover.updateBattery(consumption, charge); // [cite: 41]
 
             // 6. logolas
-            String logLine = String.format("[%04d min] POS: (%2d,%2d) | BATT: %5.1f%% | DIST: %4d | MIN: %2d | ACT: %s",
-                    step * 30, rover.getX(), rover.getY(), rover.getBattery(), rover.getTotalDistance(), rover.getMinerals(), action);
+            String logLine = String.format("[%05.1f h] POS: (%2d,%2d) | BATT: %5.1f%% | DIST: %4d | MIN: %2d | ACT: %s",
+                    step * 0.5, rover.getX(), rover.getY(), rover.getBattery(), rover.getTotalDistance(), rover.getMinerals(), action);
             FileManager.log(logLine);
 
             // ha lemerult
