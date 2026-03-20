@@ -17,5 +17,5 @@ Fejlesztői kőrnyezet:
   
 Használati Útmutató:
   1. Letölteni a OpenJDK Runtime 25-et (Debianon: apt install openjdk-25-jre vagy Archon: pacman -S jre25-openjdk)
-  2. Kicsomagolni a zip fált és futtatni a rover-ui.jar fájlt.
+  2. Kicsomagolni a zip fált és futtatni a rover-ui.jar fájlt az "executable" mappából.
   3. A felugrott ablakon kiválasztani a CSV fájlt és megadni a virtuális időkorlátot.
