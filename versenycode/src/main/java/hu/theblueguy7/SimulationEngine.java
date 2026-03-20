@@ -37,7 +37,7 @@ public class SimulationEngine {
             Speed currentSpeed = Speed.SLOW;
 
             if (rover.getBattery() >= 2.0) {
-            // 1. idokorlat miatti hazateres ellenorzese
+            // 1. check if time limit requires heading home
             if (!isHeadingHome) {
                 List<Node> pathToHome = pathFinder.findPath(rover.getX(), rover.getY(), startX, startY);
                 int distToHome = (pathToHome != null) ? pathToHome.size() : 0;
@@ -46,32 +46,32 @@ public class SimulationEngine {
                 if (step + stepsToHome + 2 >= totalSteps) {
                     currentPath = pathToHome;
                     isHeadingHome = true;
-                    System.out.println("Időkorlát közeleg, a rover elindult haza!");
+                    System.out.println("Time limit approaching, rover heading home!");
                 }
             }
 
-            // 2. banyaszat ellenorzese
+            // 2. check for mining
             if (!isHeadingHome && map[rover.getX()][rover.getY()].isMineral()) {
                 action = "MINING " + map[rover.getX()][rover.getY()].getSymbol();
                 consumption = 2.0;
                 rover.addMineral();
                 map[rover.getX()][rover.getY()] = CellType.GROUND;
             }
-            // 3. celkereses
+            // 3. find target
             else if (currentPath == null || currentPath.isEmpty()) {
                 if (!isHeadingHome) {
                     currentPath = findBestMineral(step);
                 }
-                // ha nincs biztonsagos asvany hazamegyunk
+                // if no safe mineral found, head home
                 if ((currentPath == null || currentPath.isEmpty()) && (rover.getX() != startX || rover.getY() != startY)) {
                     currentPath = pathFinder.findPath(rover.getX(), rover.getY(), startX, startY);
                     isHeadingHome = true;
                 }
             }
 
-            // 4. mozgas vegrehastasa
+            // 4. execute movement
             if (currentPath != null && !currentPath.isEmpty()) {
-                // sebesseg eldontese
+                // determine speed
                 currentSpeed = determineOptimalSpeed(isDay, rover.getBattery(), currentPath.size());
                 int blocksToMove = Math.min(currentSpeed.velocity, currentPath.size());
 
@@ -83,7 +83,7 @@ public class SimulationEngine {
                     rover.setPosition(next.x, next.y);
                     rover.addDistance(1);
 
-                    // ha asvanyon allunk akkor megallunk es kibanyasszuk
+                    // stop and mine if standing on a mineral
                     if (!isHeadingHome && map[next.x][next.y].isMineral()) {
                         break;
                     }
@@ -93,23 +93,23 @@ public class SimulationEngine {
                 action = "WAITING FOR CHARGE";
             }
 
-            // 5. energia frissitese
+            // 5. update energy
             double charge = isDay ? 10.0 : 0.0; // [cite: 40]
             rover.updateBattery(consumption, charge); // [cite: 41]
 
-            // 6. logolas
-            String logLine = String.format("[%05.1f h] POS: (%2d,%2d) | BATT: %5.1f%% | DIST: %4d | MIN: %2d | ACT: %s",
+            // 6. logging
+            String logLine = String.format("[%05.1f h] POS: (%2d,%2d) | BATT: %5.1f%% | DIST: %4d | MINERALS: %2d | ACT: %s",
                     step * 0.5, rover.getX(), rover.getY(), rover.getBattery(), rover.getTotalDistance(), rover.getMinerals(), action);
             FileManager.log(logLine);
 
-            // ha lemerult
+            // if battery depleted
         }
     }
 
         private Speed determineOptimalSpeed(boolean isDay, double battery, int distanceLeft) {
             if (distanceLeft <= 1) return Speed.SLOW;
             if (distanceLeft == 2) return Speed.NORMAL;
-            // nappal
+            // daytime
             if (isDay) {
                 if (battery < 25.0) return Speed.SLOW;
 
@@ -117,7 +117,7 @@ public class SimulationEngine {
 
                 return Speed.NORMAL;
             }
-            // este
+            // nighttime
             else {
                 if (this.isHeadingHome && battery > 40.0) {
                     return Speed.NORMAL;

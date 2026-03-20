@@ -4,7 +4,7 @@ public class Rover {
     private int x, y;
     private double battery = 100.0;
     private int mineralsCollected = 0;
-    private int totalDistance = 0; // logolashoz
+    private int totalDistance = 0; // for logging
 
     public Rover(int startX, int startY) {
         this.x = startX;

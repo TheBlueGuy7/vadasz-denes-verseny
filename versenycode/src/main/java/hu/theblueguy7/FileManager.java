@@ -8,7 +8,7 @@ import java.nio.file.*;
 public class FileManager {
     private static final String LOG_FILE = "simulation.log";
 
-    // terkep betoltese (atalakitva)
+    // load map
     public static CellType[][] loadMap(String path) throws IOException {
         CellType[][] map = new CellType[50][50];
         BufferedReader br = new BufferedReader(new FileReader(path));
@@ -33,7 +33,7 @@ public class FileManager {
         try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(LOG_FILE, true)))) {
             out.println(message);
         } catch (IOException e) {
-            System.err.println("Hiba a log fájl írásakor: " + e.getMessage());
+            System.err.println("Error writing log file: " + e.getMessage());
         }
     }
 

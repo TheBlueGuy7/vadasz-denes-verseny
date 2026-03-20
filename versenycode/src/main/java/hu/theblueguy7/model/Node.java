@@ -2,7 +2,7 @@ package hu.theblueguy7.model;
 
 public class Node implements Comparable<Node> {
     public int x, y;
-    public double gCost, hCost; // g: eddigi ut, h: heuristic
+    public double gCost, hCost; // g: distance so far, h: heuristic
     public Node parent;
 
     public Node(int x, int y) { this.x = x; this.y = y; }

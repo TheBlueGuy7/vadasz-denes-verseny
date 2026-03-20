@@ -10,16 +10,16 @@ public class StrategyManager {
         this.pf = pf;
     }
 
-    // kiszamolja mennyi energy es ido kell
+    // calculates required energy and time
     public RouteEstimate estimateRoute(int pathLength, Speed speed, int startStep) {
-        // hany lepes kell
+        // how many half-hour steps needed
         int halfHoursNeeded = (int) Math.ceil((double) pathLength / speed.velocity);
         double totalEnergy = 0;
 
         for (int i = 0; i < halfHoursNeeded; i++) {
             boolean isDay = ((startStep + i) % 48) < 32;
             double consumption = 2.0 * Math.pow(speed.velocity, 2); // E = 2 * v^2 [cite: 36]
-            if (isDay) consumption -= 10; // nappal tolt a napelem
+            if (isDay) consumption -= 10; // solar panel charges during the day
             totalEnergy += consumption;
         }
         return new RouteEstimate(totalEnergy, halfHoursNeeded);

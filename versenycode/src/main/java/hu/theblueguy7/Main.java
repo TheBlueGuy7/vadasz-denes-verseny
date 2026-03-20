@@ -10,7 +10,7 @@ public class Main {
         try {
             System.out.println("=== Moon Rover Simulation ===");
             
-            String mapPath = args.length > 0 ? args[0] : "./map3.csv";
+            String mapPath = args.length > 0 ? args[0] : "./map.csv";
             System.out.println("Loading map from: " + mapPath);
 
             CellType[][] map = FileManager.loadMap(mapPath);
@@ -20,7 +20,7 @@ public class Main {
             System.out.println("Starting simulation...");
 
             SimulationEngine simulationEngine = new SimulationEngine(map, startPos[0], startPos[1]);
-            simulationEngine.runSimulation(48);
+            simulationEngine.runSimulation(96);
 
             System.out.println("Simulation finished. Check 'simulation.log' for results.");
         } catch (IOException e) {

@@ -32,11 +32,17 @@ public class PathFinder {
                     int nx = current.x + dx;
                     int ny = current.y + dy;
 
-                    if (nx >= 0 && nx < 50 && ny >= 0 && ny < 50 && map[nx][ny].isPassable() && !closedSet[nx][ny]) {
-                        // FIX: az atlos lepes ugyan annyiba kerul mint az egyenes
+                    if (nx >= 0 && nx < 50 && ny >= 0 && ny < 50 && map[nx][ny].isPassable() && !closedSet[nx][ny]
+                            && (dx == 0 || dy == 0 || (map[current.x + dx][current.y].isPassable() && map[current.x][current.y + dy].isPassable()))) {
+                        double moveCost = (dx == 0 || dy == 0) ? 1.0 : Math.sqrt(2);
                         Node neighbor = new Node(nx, ny);
-                        neighbor.gCost = current.gCost + 1;
-                        neighbor.hCost = Math.max(Math.abs(nx - targetX), Math.abs(ny - targetY)); // Chebyshev-distance
+                        neighbor.gCost = current.gCost + moveCost;
+
+                        // Octile distance heuristic
+                        double xDist = Math.abs(nx - targetX);
+                        double yDist = Math.abs(ny - targetY);
+                        neighbor.hCost = (Math.sqrt(2) - 1) * Math.min(xDist, yDist) + Math.max(xDist, yDist);
+                        
                         neighbor.parent = current;
 
                         openSet.add(neighbor);
