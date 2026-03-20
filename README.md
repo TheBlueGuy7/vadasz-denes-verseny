@@ -1,1 +1,0 @@
-# Vadász Dénes Informatikai Verseny
