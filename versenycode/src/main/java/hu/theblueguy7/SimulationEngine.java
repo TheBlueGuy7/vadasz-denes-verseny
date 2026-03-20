@@ -83,7 +83,6 @@ public class SimulationEngine {
                     rover.addMineral();
                     map[rover.getX()][rover.getY()] = CellType.GROUND;
                     console.append("Collected mineral " + mineralType + " (#" + rover.getMinerals() + ")\n");
-                    // After mining, re-evaluate: find the next best mineral from here
                     currentPath = null;
                 } else if (currentPath == null || currentPath.isEmpty()) {
                     if (!isHeadingHome) {
@@ -99,7 +98,6 @@ public class SimulationEngine {
                         console.append("No safe minerals remaining, heading home\n");
                     }
                 } else if (!isHeadingHome) {
-                    // Check if there's a closer mineral than current target
                     Node currentTarget = currentPath.getLast();
                     int remainingDist = currentPath.size();
                     Node nearby = findNearbyMineral(remainingDist, step);
@@ -224,7 +222,6 @@ public class SimulationEngine {
                     isHeadingHome = true;
                 }
             } else if (!isHeadingHome) {
-                // Check if there's a closer mineral than current target
                 Node currentTarget = currentPath.getLast();
                 int remainingDist = currentPath.size();
                 Node nearby = findNearbyMineral(remainingDist, step);
@@ -317,12 +314,10 @@ public class SimulationEngine {
     }
 
     private List<Node> findBestMineral(int currentStep) {
-        // Flood-fill from rover to get real distances to all reachable cells
         double[][] distFromRover = pathFinder.distanceMap(rover.getX(), rover.getY());
-        // Flood-fill from home to get real distances from each cell back to base
         double[][] distFromHome = pathFinder.distanceMap(startX, startY);
 
-        // Collect all reachable minerals
+        // collect all reachable minerals
         List<Node> minerals = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             for (int j = 0; j < 50; j++) {
@@ -335,8 +330,7 @@ public class SimulationEngine {
                 }
             }
         }
-
-        // sort by distance from rover (nearest first)
+        
         minerals.sort(Comparator.comparingDouble(n -> n.gCost));
 
         // try each mineral, nearest first
